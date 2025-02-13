@@ -1,11 +1,51 @@
-Menu = ["D","W","Q"]
-Initial_Balance = 4500
+menu = ["D","W","Q"]
+initial_balance = 4500
 
 print("*" * 40)
-print("\t","PIXELL RIVER FINANCIAL")
-print("\t","  ", "ATM Simulator")
-print("\n", f"Your current balance is: ${Initial_Balance:,.2f}")
-print("\n", "\t", "    " f"Deposit: {Menu[0]}")
-print( "\t", "  " f"Withdrawal: {Menu[1]}")
-print( "\t", "     " f"Quit: {Menu[2]}")
+print("PIXELL RIVER FINANCIAL".center(40))
+print("ATM Simulator".center(40))
+print("\n", f"Your current balance is: ${initial_balance:,.2f}".center(40))
+print("\n", f"Deposit: {menu[0]}".center(40))
+print(f"Withdrawal: {menu[1]}".center(40))
+print(f"Quit: {menu[2]}".center(40))
 print("*" * 40)
+
+import os
+import time
+selection = " " 
+while selection != 'Q':
+    selection = input("\nEnter your selection: ").upper()
+    if selection not in menu:
+        print("\n", "*" * 40)
+        print("INVALID SELECTION".center(40))
+        print("*" * 40)
+        time.sleep(3)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        continue
+
+    elif selection == 'D':
+        deposit_amount = int(input("\nEnter the transaction amount: "))
+        initial_balance += deposit_amount
+        print("\n","*" * 40)
+        print(f"Your current balance is: ${initial_balance:,.2f}".center(40))
+        print("*" * 40)
+        time.sleep(3)
+        os.system('cls' if os.name == 'nt' else 'clear')   
+
+    elif selection == 'W':
+        withdrawal_amount = int(input("\nEnter the transaction amount: "))
+        if withdrawal_amount <= initial_balance:
+            initial_balance -= withdrawal_amount
+            print("\n", "*" * 40)
+            print(f"Your current balance is: ${initial_balance:,.2f}".center(40))
+            print("*" * 40)
+            time.sleep(3)
+            os.system('cls' if os.name == 'nt' else 'clear')
+                
+        elif withdrawal_amount >= initial_balance:
+            print("\n", "*" * 40)
+            print("INSUFFICIENT FUNDS".center(40))
+            print( "*" * 40)
+            time.sleep(3)
+            os.system('cls' if os.name == 'nt' else 'clear')
+    
