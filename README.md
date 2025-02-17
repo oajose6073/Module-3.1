@@ -15,6 +15,8 @@ In this project I am demonstrating my understanding of:
 - Using the import function.
 - Importing a text file to dictionary with delimiters.
 - Creating a csv file.
+- Importing csv file.
+- Using dictionaries and list.
 
 ## ATM-Simulator
 
