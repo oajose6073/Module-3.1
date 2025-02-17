@@ -13,6 +13,8 @@ In this project I am demonstrating my understanding of:
 - Performing version control (Git) tasks.
 - Using logic and loop while working on a program.
 - Using the import function.
+- Importing a text file to dictionary with delimiters.
+- Creating a csv file.
 
 ## ATM-Simulator
 

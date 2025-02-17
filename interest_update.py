@@ -12,21 +12,27 @@ updated_balances = {}
 interest =[]
 for key, amount in account_balance.items():
     if amount < 1000 :
-        rate = 0.01
+        interest_rate = 0.01
         
     elif amount < 5000 and amount >= 1000 :
-        rate = 0.025
+        interest_rate = 0.025
         
     elif amount > 5000 :
-        rate = 0.05
+        interest_rate = 0.05
         
     if amount < 0 :
-        rate = -0.10
+        interest_rate = -0.10
 
-    monthly_interest = (amount*rate)/12
+    monthly_interest = (amount*interest_rate)/12
     interest.append(monthly_interest)
 
     updated_balances [key] = f"{monthly_interest + amount: .6f}"
    
 print("Interest:", interest)
 pprint(updated_balances)
+
+with open("updated_balances_OA.csv", "w", newline='') as csvfile:
+    csvfile.write("Account,Balance\n")
+    for key, value in updated_balances.items():
+        csvfile.write(f"{key},{value}\n")
+
